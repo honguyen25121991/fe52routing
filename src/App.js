@@ -9,7 +9,7 @@ import { routesHome,routesAdmin } from "./routes";
 import NavbarAdmin from "./components/NavbarAdmin";
 import HomeTemplate from "./containers/HomeTemplate";
 import AdminTemplate from "./containers/AdminTemplate"
-
+import AuthPage from "./containers/AdminTemplate/AuthPage"
 
 function App() {
   const showLayoutHome = (routes) => {
@@ -65,9 +65,9 @@ function App() {
 
           {showLayoutHome(routesHome)};
           {showLayoutAdmin(routesAdmin)};
-
+          <Route exact={false} path="/auth" component={AuthPage}/>
           {/* Trang K tim thay */}
-          <Route path="" component={PageNotFound} />
+          <Route path="" component={PageNotFound}/>
         </Switch>
       </div>
     </BrowserRouter>
