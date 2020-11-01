@@ -5,18 +5,42 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PageNotFound from "./containers/PageNotFound";
 import NavbarHome from "./components/NavbarHome";
-import { routesHome } from "./routes";
+import { routesHome,routesAdmin } from "./routes";
+import NavbarAdmin from "./components/NavbarAdmin";
+import HomeTemplate from "./containers/HomeTemplate";
+import AdminTemplate from "./containers/AdminTemplate"
+
 
 function App() {
   const showLayoutHome = (routes) => {
     if (routes && routes.length > 0) {
       return routes.map((item, index) => {
         return (
-          <Route
+          // <Route
+          //   key={index}
+          //   exact={item.exact}
+          //   path={item.path}
+          //   component={item.component}
+          // />
+          <HomeTemplate
+            key = {index}
+            exact = {item.exact}
+            path = {item.path}
+            Component = {item.component}
+          />
+        );
+      });
+    }
+  };
+  const showLayoutAdmin = (routes) => {
+    if (routes && routes.length > 0) {
+      return routes.map((item, index) => {
+        return (
+          <AdminTemplate
             key={index}
             exact={item.exact}
             path={item.path}
-            component={item.component}
+            Component={item.component}
           />
         );
       });
@@ -26,7 +50,9 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <NavbarHome />
+        {/* <NavbarHome /> */}
+        {/* <NavbarAdmin/> */}
+     
         <Switch>
           {/* Trang HomePage - localhost:3000 */}
           {/* <Route exact path="/" component={HomePage} /> */}
@@ -37,7 +63,8 @@ function App() {
           {/* Trang ListMoviePage - localhost:3000/list-movie */}
           {/* <Route path="/list-movie" component={ListMoviePage} /> */}
 
-          {showLayoutHome(routesHome)}
+          {showLayoutHome(routesHome)};
+          {showLayoutAdmin(routesAdmin)};
 
           {/* Trang K tim thay */}
           <Route path="" component={PageNotFound} />

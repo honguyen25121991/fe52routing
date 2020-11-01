@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-export default class NavbarHome extends Component {
+export default class NavbarAdmin extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-md bg-dark navbar-dark">
         {/* Brand */}
         <a className="navbar-brand" href="#as">
-          Navbar
+          Admin
         </a>
         {/* Toggler/collapsibe Button */}
         <button
@@ -23,37 +23,23 @@ export default class NavbarHome extends Component {
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink
-                exact
+               
                 activeClassName="active"
                 className="nav-link"
-                to="/"
+                to="/dashbroad"
               >
-                Home
+                Dashbroad
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 activeClassName="active"
                 className="nav-link"
-                to="/about"
+                to="/userpage"
               >
-                About
+                User
               </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                to="/list-movie"
-              >
-                ListMovie
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link" to="/hoc">
-                Hoc
-              </NavLink>
-            </li>
+            </li>         
           </ul>
         </div>
       </nav>
